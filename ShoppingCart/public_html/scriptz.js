@@ -22,7 +22,7 @@ act_btn.addEventListener("click", function newThing() {
                 <i class="far fa-times-circle"></i>
               </div>
             `;
-  newItem.setAttribute("class", "item");
+  newItem.setAttribute("class", "item new-item");
   parentElement.appendChild(newItem);
   item_count += 1;
   my_item_count.innerHTML = item_count;
