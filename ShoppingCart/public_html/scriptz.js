@@ -40,7 +40,7 @@ deletesToArray.forEach(item => {
   item.addEventListener("click", function Clicked() {
     const itemParent = item.parentElement.parentElement;
     itemParent.remove();
-    
+    deletesToArray.pop();
     item_count -=1;
     my_item_count.innerHTML = item_count;
     total -= 3000;
