@@ -120,5 +120,10 @@ button,a,i {
 }
 
 button:hover {
-	background: #339EBE;
+    background: #339EBE;
+    border: none;
+}
+
+h4:nth-child(1){
+    padding: 1em;
 }
