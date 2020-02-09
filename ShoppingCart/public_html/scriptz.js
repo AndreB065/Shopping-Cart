@@ -9,9 +9,7 @@
   
   //console.log(X);
   console.log(parentElement);
-  // };
-  
-  
+
   act_btn.addEventListener('click', function newThing(){
       const newItem = document.createElement("div");
       const parentElement = document.getElementById("master-items");
@@ -24,7 +22,7 @@
                 <p>$3000</p>
               </div>
               <div class="right">
-                <i class="far fa-times-circle"></i>
+                <i class="far fa-times-circle" onclick="deleteItem(this);"></i>
               </div>
             </div>`;
       newItem.setAttribute("id", "item")
@@ -35,3 +33,12 @@
 	my_total.innerHTML = total;
     alert('Adding new item to cart.');
 })
+
+function deleteItem(my_element) {
+    // Removes an element from the document
+	my_element.parentNode.parentElement.remove();
+	item_count -= 1;
+	my_item_count.innerHTML = item_count;
+	total -= 3000;
+	my_total.innerHTML = total;
+}
