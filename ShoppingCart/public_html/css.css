@@ -20,6 +20,7 @@ body {
     border: solid 2px orange;
     padding-bottom: 6em;
     padding-left: 1.3em;
+    padding-top: .5em;
     padding-right: 1.3em;
     /* align-items: center; */
 }
@@ -36,16 +37,24 @@ body {
     background-color: #F05555;
 	width: 42%;
 	height: 3em;
-	padding: 1.5%;
+    padding: 1.5%;
+    display: flex;
+    justify-content: flex-end;
 	/*border: 1px solid black;*/
 }
 
 #atc-btn {
 	width: 20%;
 	height: 100%;
-	float: right;
+	/* float: right; */
 	color: #F05555;
 }
+i.fa-shopping-cart {
+    /* font-size: 1.2em; */
+    padding-right: .3em;
+    padding-left: .3em;
+}
+
 
 #overall {
 	display: flex;
@@ -100,6 +109,7 @@ body {
 .final-part {
     display: flex;
     padding: .4em;
+    padding-top: 3em;
 }
 
 .final-part > * {

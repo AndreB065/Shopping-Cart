@@ -1,17 +1,17 @@
 const parentElement = document.getElementById("master-items");
-const act_btn = document.getElementById('atc-btn');
-const my_total = document.getElementById('my-total');
-let my_item_count = document.getElementById('my-item-count');
-let item_count = document.getElementsByClassName('item').length;
+const act_btn = document.getElementById("atc-btn");
+const my_total = document.getElementById("my-total");
+let my_item_count = document.getElementById("my-item-count");
+let item_count = document.getElementsByClassName("item").length;
 let total = 6000;
 
 //console.log(X);
 console.log(parentElement);
 
-act_btn.addEventListener('click', function newThing(){
-    const newItem = document.createElement("div");
-    const parentElement = document.getElementById("master-items");
-    newItem.innerHTML = `<div class="item">
+act_btn.addEventListener("click", function newThing() {
+  const newItem = document.createElement("div");
+  const parentElement = document.getElementById("master-items");
+  newItem.innerHTML = `<div class="item">
             <div class="left">
               <img class="left-image" src="./flower.jpeg" alt="" />
             </div>
@@ -23,20 +23,20 @@ act_btn.addEventListener('click', function newThing(){
               <i class="far fa-times-circle" onclick="deleteItem(this);"></i>
             </div>
           </div>`;
-    newItem.setAttribute("id", "item")
+  newItem.setAttribute("id", "item");
   parentElement.appendChild(newItem);
-item_count += 1;
-my_item_count.innerHTML = item_count;
-total += 3000;
-my_total.innerHTML = total;
-  alert('Adding new item to cart.');
-})
+  item_count += 1;
+  my_item_count.innerHTML = item_count;
+  total += 3000;
+  my_total.innerHTML = total;
+  alert("Adding new item to cart.");
+});
 
 function deleteItem(my_element) {
   // Removes an element from the document
-my_element.parentNode.parentElement.remove();
-item_count -= 1;
-my_item_count.innerHTML = item_count;
-total -= 3000;
-my_total.innerHTML = total;
+  my_element.parentNode.parentElement.remove();
+  item_count -= 1;
+  my_item_count.innerHTML = item_count;
+  total -= 3000;
+  my_total.innerHTML = total;
 }
