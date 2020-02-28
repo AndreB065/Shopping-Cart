@@ -31,7 +31,6 @@
 	my_item_count.innerHTML = item_count;
 	total += 3000;
 	my_total.innerHTML = total;
-    alert('Adding new item to cart.');
 })
 
 function deleteItem(my_element) {
