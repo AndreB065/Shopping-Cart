@@ -5,11 +5,18 @@
   const my_total = document.getElementById('my-total');
   let my_item_count = document.getElementById('my-item-count');
   let item_count = document.getElementsByClassName('item').length;
-  let total = 6000;
+  let total = 3000;
+  
+  //Display initial total
+  my_total.innerHTML = total;
+  
+  //Display starting count of items
+  my_item_count.innerHTML = item_count;
   
   //console.log(X);
   console.log(parentElement);
 
+  //Add item on click and update supported info accordingly
   act_btn.addEventListener('click', function newThing(){
       const newItem = document.createElement("div");
       const parentElement = document.getElementById("master-items");
