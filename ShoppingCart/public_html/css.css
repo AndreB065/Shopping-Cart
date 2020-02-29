@@ -49,6 +49,13 @@ body {
 	/* float: right; */
 	color: #F05555;
 }
+
+#co-btn {
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+
 i.fa-shopping-cart {
     /* font-size: 1.2em; */
     padding-right: .3em;
