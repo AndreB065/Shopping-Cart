@@ -1,0 +1,8 @@
+The first row in the xlsx HAS to be the schema
+
+It can't be anything else
+
+That way it will essentially convert it to something like...
+
+Page#  | Item # | Unit Cnt/Pkg | Pice Cnt/Pkg   | List Price/Piece |
+Number | Number |     Number   |    Number      |    Number        |

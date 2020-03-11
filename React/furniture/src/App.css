@@ -1,0 +1,23 @@
+ *{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ .whole {
+   border: solid 2px red;
+   display: flex;
+   flex-wrap: wrap;
+ }
+
+ .individual {
+   padding: 1em;
+   border: solid 2px green;
+   text-align: center;
+ }
+
+ .item-button {
+   padding: 1em;
+   background-color: rgb(33, 153, 252);
+   color: white;
+ }
