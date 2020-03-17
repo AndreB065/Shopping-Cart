@@ -56,7 +56,7 @@ class UpdatePage extends Component {
       .then(() => {
         // console.log("GOOOD JOB!!!");
         this.setState({ changedIt: false });
-        this.setState({ redir: true})
+        this.props.history.push("/");
       })
 
       .catch(err => {
