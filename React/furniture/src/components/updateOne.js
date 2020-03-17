@@ -49,7 +49,7 @@ class UpdatePage extends Component {
       .put(`http://localhost:4000/admin/${this.props.match.params.id}`, {
         pageNum: this.state.pageNum,
         itemNum: this.state.itemNum,
-        description: this.state.unitPkg,
+        unitPkg: this.state.unitPkg,
         imageUrl: this.state.imageUrl
       })
       .then(() => {
