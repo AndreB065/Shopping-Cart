@@ -7,7 +7,8 @@ const furnitureSchema = new mongoose.Schema({
     pkgPricePkgCost: Number,
     pieceCntPkg: Number,
     listPricePiece: Number,
-    listPricePkg: Number
+    listPricePkg: Number,
+    imageUrl: String
 })
 
 const Furniture = mongoose.model('furniCOllection', furnitureSchema);

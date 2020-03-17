@@ -21,3 +21,8 @@
    background-color: rgb(33, 153, 252);
    color: white;
  }
+
+ .furni-image {
+   width: 200px;
+   display: block;
+ }

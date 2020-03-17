@@ -52,6 +52,7 @@ class MainPage extends Component {
               <p>PieceCntPkg: {folks.pieceCntPkg}</p>
               <p>ListPricePiece: ${folks.listPricePiece}</p>
               <p>PricePkg: {folks.listPricePkg}</p>
+              <img className="furni-image" src={folks.imageUrl} alt=""/>
               <Link to={`/v1/admin/${folks._id}`}>
                 <button class="item-button">View Item</button>
               </Link>

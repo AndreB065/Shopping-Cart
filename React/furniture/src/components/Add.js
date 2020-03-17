@@ -14,6 +14,7 @@ class AddPage extends Component {
       pieceCntPkg: "",
       pricePiece: "",
       listPricePkg: "",
+      imageUrl: "",
       itsGoneJim: false
     };
   }
@@ -63,6 +64,11 @@ class AddPage extends Component {
       console.log(this.state.listPricePkg);
     });
   };
+  changeimageUrl = e => {
+    this.setState({ imageUrl: e.target.value }, () => {
+      console.log(this.state.imageUrl);
+    });
+  };
 
   sendIt = e => {
     e.preventDefault();
@@ -75,7 +81,8 @@ class AddPage extends Component {
         pkgPricePkgCost: this.state.pricePkg,
         pieceCntPkg: this.state.pieceCntPkg,
         listPricePiece: this.state.pricePiece,
-        listPricePkg: this.state.listPricePkg
+        listPricePkg: this.state.listPricePkg,
+        imageUrl: this.state.imageUrl
       })
       .then(res => {
         this.setState({ itsGoneJim: true });
@@ -145,6 +152,13 @@ class AddPage extends Component {
               name="listPricePkg"
               id=""
               onChange={this.changelistPricePkg}
+            ></input>
+            <h1>Change Image</h1>
+            <input
+              type="text"
+              name="imageUrl"
+              id=""
+              onChange={this.changeimageUrl}
             ></input>
             <button>Send Me</button>
           </form>

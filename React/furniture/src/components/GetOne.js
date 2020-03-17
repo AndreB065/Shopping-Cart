@@ -16,6 +16,7 @@ class OnlyOne extends Component {
       pieceCntPkg: "",
       pricePiece: "",
       listPricePkg: "",
+      imageUrl: "",
       itDontExist: false
     };
   }
@@ -33,7 +34,8 @@ class OnlyOne extends Component {
           pricePkg: res.data.data.pkgPricePkgCost,
           pieceCntPkg: res.data.data.pieceCntPkg,
           pricePiece: res.data.data.listPricePiece,
-          listPricePkg: res.data.data.listPricePkg
+          listPricePkg: res.data.data.listPricePkg,
+          imageUrl: res.data.data.imageUrl
         });
         this.setState({ itDontExist: false });
       })
@@ -54,6 +56,7 @@ class OnlyOne extends Component {
           <h1>$ {this.state.unitPkg}</h1>
           <h1>$ {this.state.unitPrc}</h1>
           <h1>{this.state._id}</h1>
+          <img className="furni-image"src={this.state.imageUrl} alt=""/>
           <Link to={`/v1/update/${this.state._id}`}>Update Page</Link>
         </div>
       );

@@ -15,6 +15,7 @@ class UpdatePage extends Component {
         pieceCntPkg: "",
         pricePiece: "",
         listPricePkg: "",
+        imageUrl: "",
       changedIt: false
     };
   }
@@ -31,7 +32,8 @@ class UpdatePage extends Component {
             pricePkg: res.data.data.pkgPricePkgCost,
             pieceCntPkg: res.data.data.pieceCntPkg,
             pricePiece: res.data.data.listPricePiece,
-            listPricePkg: res.data.data.listPricePkg
+            listPricePkg: res.data.data.listPricePkg,
+            imageUrl: res.data.data.imageUrl
         });
         this.setState({ changedIt: false });
       })
@@ -40,6 +42,24 @@ class UpdatePage extends Component {
         this.setState({ changedIt: true });
       });
   }
+
+  willUpdate = e => {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:4000/admin/${this.props.match.params.id}`, {
+        pageNum: this.state.pageNum,
+        itemNum: this.state.itemNum,
+        description: this.state.unitPkg,
+        imageUrl: this.state.imageUrl
+      })
+      .then(() => {
+        console.log("GOOOD JOB!!!");
+        this.setState({ changedIt: false });
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  };
 
   changePageNum = e => {
     this.setState({ pageNum: e.target.value }, () => {
@@ -56,23 +76,12 @@ class UpdatePage extends Component {
       console.log(this.state.unitPkg);
     });
   };
-
-  willUpdate = e => {
-    e.preventDefault();
-    axios
-      .put(`http://localhost:4000/admin/${this.props.match.params.id}`, {
-        pageNum: this.state.pageNum,
-        itemNum: this.state.itemNum,
-        description: this.state.unitPkg
-      })
-      .then(() => {
-        console.log("GOOOD JOB!!!");
-        this.setState({ changedIt: false });
-      })
-      .catch(err => {
-        console.log(err)
-      });
+  changeImageUrl = e => {
+    this.setState({ imageUrl: e.target.value }, () => {
+      console.log(this.state.imageUrl);
+    });
   };
+
 
   render() {
     if (this.state.changedIt === false) {
@@ -97,14 +106,21 @@ class UpdatePage extends Component {
               onChange={this.changeItemNum}
             ></input>
             <h1>Unit Pkg: </h1>
-            <textarea
-              value={this.state.unitPkg}
+            <input
+              type="text"
               name="unitPkg"
               id=""
-              cols="30"
-              rows="10"
-              onChange={this.state.changeUnitPkg}
-            ></textarea>
+              value={this.state.unitPkg}
+              onChange={this.changeUnitPkg}
+            ></input>
+            <h1>Image: </h1>
+            <input
+              type="text"
+              name="imageUrl"
+              id=""
+              value={this.state.imageUrl}
+              onChange={this.changeImageUrl}
+            ></input>
             <button>Send Me</button>
           </form>
         </div>
