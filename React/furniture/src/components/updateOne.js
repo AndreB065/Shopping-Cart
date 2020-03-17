@@ -1,14 +1,14 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Redirect } from "react-router-dom";
   //So you HAVE to only bring the Redirect and that one only...
-import axios from "axios";
 
 class UpdatePage extends Component {
   constructor(props, { match }) {
     super();
     this.state = {
-        pageNum: "",
-        itemNum: "",
+      pageNumber: "",
+      itemNumber: "",
         unitPkg: "",
         unitPrc: "",
         pricePkg: "",
@@ -16,6 +16,7 @@ class UpdatePage extends Component {
         pricePiece: "",
         listPricePkg: "",
         imageUrl: "",
+        redir: false,
       changedIt: false
     };
   }
@@ -25,8 +26,8 @@ class UpdatePage extends Component {
       .get(`http://localhost:4000/admin/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
-            pageNum: res.data.data.pageNumber,
-            itemNum: res.data.data.itemNumber,
+          pageNumber: res.data.data.pageNumber,
+          itemNumber: res.data.data.itemNumber,
             unitPkg: res.data.data.unitPkg,
             unitPrc: res.data.data.unitPriceCost,
             pricePkg: res.data.data.pkgPricePkgCost,
@@ -47,28 +48,30 @@ class UpdatePage extends Component {
     e.preventDefault();
     axios
       .put(`http://localhost:4000/admin/${this.props.match.params.id}`, {
-        pageNum: this.state.pageNum,
-        itemNum: this.state.itemNum,
+        pageNumber: this.state.pageNumber,
+        itemNumber: this.state.itemNumber,
         unitPkg: this.state.unitPkg,
         imageUrl: this.state.imageUrl
       })
       .then(() => {
-        console.log("GOOOD JOB!!!");
+        // console.log("GOOOD JOB!!!");
         this.setState({ changedIt: false });
+        this.setState({ redir: true})
       })
+
       .catch(err => {
         console.log(err)
       });
   };
 
   changePageNum = e => {
-    this.setState({ pageNum: e.target.value }, () => {
-      console.log(this.state.pageNum);
+    this.setState({ pageNumber: e.target.value }, () => {
+      console.log(this.state.pageNumber);
     });
   };
   changeItemNum = e => {
-    this.setState({ itemNum: e.target.value }, () => {
-      console.log(this.state.itemNum);
+    this.setState({ itemNumber: e.target.value }, () => {
+      console.log(this.state.itemNumber);
     });
   };
   changeUnitPkg = e => {
@@ -92,17 +95,17 @@ class UpdatePage extends Component {
             <h1>Page Num: </h1>
             <input
               type="text"
-              name="pageNum"
+              name="pageNumber"
               id=""
-              value={this.state.pageNum}
+              value={this.state.pageNumber}
               onChange={this.changePageNum}
             ></input>
             <h1>Item Num: </h1>
             <input
               type="text"
-              name="itemNum"
+              name="itemNumber"
               id=""
-              value={this.state.itemNum}
+              value={this.state.itemNumber}
               onChange={this.changeItemNum}
             ></input>
             <h1>Unit Pkg: </h1>
